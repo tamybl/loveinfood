@@ -6,14 +6,82 @@
 	<title>LoveinFood - red social para los amantes de la comida</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyB7TdKsgIWrUchYKAUETAMz3Ibq-JoT4kU",
+	    authDomain: "loveinfood-4558f.firebaseapp.com",
+	    databaseURL: "https://loveinfood-4558f.firebaseio.com",
+	    projectId: "loveinfood-4558f",
+	    storageBucket: "loveinfood-4558f.appspot.com",
+	    messagingSenderId: "457297963759"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-	
-
+	<button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalRegister">Regístrate</button>
+	<!-- Modal Registrarse -->
+	<div class="modal fade" id="modalRegister" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content register-form">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title"><button type="button" class="btn btn-default btn-newaccount bold">Ya tienes una cuenta?</button></h4>
+	        <h5 class="text-uppercase bold text-center">O crea una cuenta nueva</h5>
+	      </div>
+	      <div class="content">
+	      	<div class="modal-body">
+	       	<!-- Formulario Registro -->
+	        <form>
+						<div class="form-group">
+							<input id="myName" name="name" class="form-control" type="text" placeholder="Nombre">
+						</div>
+						<div class="form-group">
+							<input id="lastname" name="lastname" class="form-control" type="text"  placeholder="Apellido">
+						</div>
+						<div class="form-group">
+							<input id="lastname" name="lastname" class="form-control" type="email" placeholder="Correo Electrónico: ejemplo@correo.com">
+						</div>
+						<div class="form-group">
+							<input type="text" id="phone" name="phone" class="form-control" placeholder="Teléfono">
+						</div>
+						<div class="form-group">
+							<input id="password" name="password" class="form-control" type="password"  placeholder="Contraseña (4 a 12 caracteres)">
+						</div>
+						<div class="form-group">
+							<input type="text" id="city" name="city" class="form-control" placeholder="Ciudad">
+						</div>
+						<div class="form-group">
+							<input type="text" id="code" name="code" class="form-control" placeholder="(Opcional) Código de invitación">
+						</div>
+						<div class="form-group">
+							<select name="howknowus" id="howknowus" class="form-control">
+								<option selected class="bold">Cómo te enteraste de nosotros?</option>
+								<option>Buscadores (Google, etc)</option>
+								<option>Redes Sociales (Facebook, Twitter, etc)</option>
+								<option>La Prensa (Diario, Tv, etc.)</option>
+								<option>Por un familiar/amigo</option>
+								<option>Otro</option>
+							</select>
+						</div>
+						
+						<button id="submit" type="submit" value="submit" class="btn btn-primary btn-send text-uppercase">Enviar</button>
+				
+					</form>
+	        </div>
+	      </div>
+	    </div>
+	    
+	  </div>
+	</div>
+	<!-- Fin Modal Registrarse-->
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/app.js"></script>
 </body>
