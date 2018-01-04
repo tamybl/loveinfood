@@ -7,6 +7,9 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
 	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
@@ -19,6 +22,7 @@
 	  };
 	  firebase.initializeApp(config);
 	</script>
+	
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -26,6 +30,7 @@
 </head>
 <body>
 	<button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalRegister">Regístrate</button>
+	<button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalLogin">Ingresar</button>
 	<!-- Modal Registrarse -->
 	<div class="modal fade" id="modalRegister" role="dialog">
 	  <div class="modal-dialog">
@@ -41,38 +46,13 @@
 	       	<!-- Formulario Registro -->
 	        <form>
 						<div class="form-group">
-							<input id="myName" name="name" class="form-control" type="text" placeholder="Nombre">
+							<input id="email" class="form-control" type="email" placeholder="Correo Electrónico: ejemplo@correo.com">
 						</div>
 						<div class="form-group">
-							<input id="lastname" name="lastname" class="form-control" type="text"  placeholder="Apellido">
+							<input id="password" class="form-control" type="password"  placeholder="Contraseña (Minimo 6 caracteres)">
 						</div>
-						<div class="form-group">
-							<input id="lastname" name="lastname" class="form-control" type="email" placeholder="Correo Electrónico: ejemplo@correo.com">
-						</div>
-						<div class="form-group">
-							<input type="text" id="phone" name="phone" class="form-control" placeholder="Teléfono">
-						</div>
-						<div class="form-group">
-							<input id="password" name="password" class="form-control" type="password"  placeholder="Contraseña (4 a 12 caracteres)">
-						</div>
-						<div class="form-group">
-							<input type="text" id="city" name="city" class="form-control" placeholder="Ciudad">
-						</div>
-						<div class="form-group">
-							<input type="text" id="code" name="code" class="form-control" placeholder="(Opcional) Código de invitación">
-						</div>
-						<div class="form-group">
-							<select name="howknowus" id="howknowus" class="form-control">
-								<option selected class="bold">Cómo te enteraste de nosotros?</option>
-								<option>Buscadores (Google, etc)</option>
-								<option>Redes Sociales (Facebook, Twitter, etc)</option>
-								<option>La Prensa (Diario, Tv, etc.)</option>
-								<option>Por un familiar/amigo</option>
-								<option>Otro</option>
-							</select>
-						</div>
-						
-						<button id="submit" type="submit" value="submit" class="btn btn-primary btn-send text-uppercase">Enviar</button>
+
+						<button id="submit_register" type="button" class="btn btn-primary btn-send text-uppercase">Enviar</button>
 				
 					</form>
 	        </div>
@@ -81,7 +61,48 @@
 	    
 	  </div>
 	</div>
+	<div id="register_users">	</div>
 	<!-- Fin Modal Registrarse-->
+	<!-- Modal Iniciar Sesión -->
+	<div class="modal fade" id="modalLogin" role="dialog">
+		    	<div class="modal-dialog modal-md">
+		      	<div class="modal-content login-color">
+		        	<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        		<h4 class="modal-title align-center"><img src="" class="img-responsive photo" alt=""></h4>
+		        	</div>
+		        	<div class="modal-body">
+		        		<div class="content">	
+			          	<form class="form-horizontal row">
+						    		<div class="form-group">
+						      		<label class="control-label col-xs-offset-1 col-xs-2 col-md-offset-1 col-md-1"><i class="fa fa-user fa-lg" aria-hidden="true"></i></label>
+						      		<div class="col-xs-8 col-md-8">
+						        		<input type="email" class="form-control input-box" id="email_login" placeholder="Correo Electrónico">
+						      		</div>
+						    		</div>
+					    		<div class="form-group">
+					      		<label class="control-label col-xs-offset-1 col-xs-2 col-md-offset-1 col-md-1"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></label>
+					      		<div class="col-xs-8 col-md-8">          
+					        		<input type="password" class="form-control input-box" id="pwd_login" placeholder="Ingresa tu contraseña">
+					      		</div>
+					    		</div>
+					    		<div class="form-group"> 
+						    		<div class="col-xs-offset-5 col-xs-5 col-md-offset-5 col-md-5">
+						      		<button type="button" class="btn btn-default bold text-uppercase default-color" id="submit_login" data-dismiss="modal">Login</button>
+						    		</div>
+			  					</div>
+			  					<div class="form-group"> 
+						    		<div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10">
+						      		<p>Olvidaste tu contraseña? <a href="#" id="forgetpwd" data-dismiss="modal">Click Aquí</a></p>
+							  			</div>
+				  					</div>
+				  				</form>
+			        	</div>							
+			        </div>
+			      </div>
+			    </div>
+	</div>
+	<!-- Fin Modal Iniciar Sesión -->
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/app.js"></script>
 </body>
