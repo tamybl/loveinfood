@@ -18,7 +18,7 @@ $(document).ready( function () {
 		$('#modalRegister').html('<div class="modal-dialog"><!-- Modal content--><div class="modal-content register-form"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title"><h5 class="text-uppercase bold text-center">Registro Completado</h5></div><div class="content"><div class="modal-body"><!-- Mensaje Registro Exitoso --><h4>Su registro se ha realizado con éxito. Recibirá un correo de verificación.</h4><button type="button" data-dismiss="modal" class="btn btn-primary btn-send text-uppercase">Cerrar</button></form></div></div></div></div>');
 		}
 		else {
-			alert('La contraseña debe tener al menos 6 caracteres');
+			alert('Email: Ingrese un correo válido. \nContraseña: debe tener al menos 6 caracteres.');
 		}
 	});
 	$('#submit_login').click( function () {
@@ -49,6 +49,8 @@ $(document).ready( function () {
 	  	}
 
 	    function showContentUsers() {
+        // Cambio Menu Principal
+        $('#menu-user').html('<li><a href="#"><button type="button" class="btn btn-default text-uppercase">ver Perfil</button></a></li><li><a href="#"><button type="button" class="btn btn-default text-uppercase" id="close_session">Cerrar Sesión</button></a></li>');
 	    	// Se fuerza al usuario a ingresar sus datos
 	    	if (displayName == null && photoURL == null) {
 	    		$('#register_users').html('<h3>Para continuar, completa la informacion de tu perfil<h3><div><input type="text" id="fullname" placeholder="Nombre Completo"></div><div><input type="text" id="urlphoto" placeholder="http://www.ejemplo.com/photo.jpg"></div><button type="button" id="completeprofile">Actualizar</button>');
@@ -67,7 +69,7 @@ $(document).ready( function () {
 	    		})
 				}
 	    	else {
-	    		$('#register_users').html('<h1>Bienvenido '+displayName+'</h1><div><img src="'+photoURL+'"></div><button type="button" class="text-uppercase" id="close_session">Cerrar Sesión</button>');
+	    		$('#register_users').html('<div class="welcome row"><div class="col-xs-4 offset-md-2 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-8"><h3>Bienvenid@ '+displayName+'</h3><p class="hidden-xs">Ultima Conexión: '+Date()+'</p></div>');
 	    	}
 	    	
 	    };

@@ -13,6 +13,10 @@ body {
     z-index: 100;
 }
 
+.navbar-toggle {
+    margin-top: 25px;
+}
+
 .maincontent {
     position: absolute;
     background-color: #2b3136;
@@ -38,8 +42,8 @@ body {
 /* header slide */
 
 .slide {
-    height: 60em;
-    overflow: hidden;
+  height: 69em;
+  overflow: hidden;
 }
 
 .photo-header {
@@ -47,7 +51,7 @@ body {
 }
 
 .intro {
-    margin-top: 8em;
+    margin-top: 0;
 }
 
 .slide-description {
@@ -61,6 +65,21 @@ body {
     text-shadow: 1px 1px #fff;
     z-index: 50;
 }
+
+/* Estilos usuario logeado */
+
+.welcome {
+  margin: 2% 5%;
+  background-color: #3e9e81;
+  color: #ffF;
+  border-radius: 6px;
+  padding: 1em;
+}
+
+
+
+
+
 @media screen and (min-width:768px){
     .navbar-brand-centered {
         position: absolute;
@@ -114,6 +133,6 @@ body {
     }
 
     .slide-description {
-        top: 50%;
+        top: 30%;
     }
 }
