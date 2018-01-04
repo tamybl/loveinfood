@@ -74,8 +74,11 @@ $(document).ready( function () {
           // Para ver perfil de usuario
           $('#show-profile').click(function () {
             $('.intro').hide();
-            $(".maincontent").css("position", "static")
-            
+            $(".maincontent").css("position", "static");
+            $(".welcome").css("background-color", "#3c434a");
+            $(".welcome").css("color", "6#c7a84");
+            $(".welcome").html('<div class="col-xs-4 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-10"><h3>'+displayName+'</h3><div class="row text-center"><div class="col-xs-4 col-md-4"><h4>Publicaciones</h4><h3>22</h3></div><div class="col-xs-4 col-md-4"><h4>Recetas</h4><h3>5</h3></div><div class="col-xs-4 col-md-4"><h4>Listas</h4><h3>2</h3></div></div></div>');
+
           })
 	    	}
 	    	
