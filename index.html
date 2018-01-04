@@ -29,8 +29,48 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-	<button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalRegister">Regístrate</button>
-	<button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalLogin">Ingresar</button>
+	<nav class="navbar navbar-default" id="navigation">
+    <div class="container">
+		<!-- El logo y el menu hamburguesa  -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <div class="navbar-brand navbar-brand-centered"><img src="assets/img/logofull.PNG" class="img-responsive logo"></div>
+		    </div>
+
+		    <!-- Recoger todos los enlaces, formularios y otros contenidos -->
+		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#">Inicio</a></li>
+		        <li><a href="#">Explorar</a></li>
+		        <li><a href="#">Usuarios</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#"><button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalLogin">Ingresar</button></a></li>
+		        <li><a href="#"><button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalRegister">Regístrate</button></a></li>		        
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	
+	<main class="maincontent container-fluid">
+		<div class="row intro">
+			<div class="col-md-12 pad-0">
+				<div class="slide"><img src="assets/img/header-photo.jpg" alt="" class="photo-header"></div>
+			</div>
+			
+		</div>
+		
+		<p>Hola</p>
+		<div id="register_users">	</div>	
+	</main>
+
+	
+	
 	<!-- Modal Registrarse -->
 	<div class="modal fade" id="modalRegister" role="dialog">
 	  <div class="modal-dialog">
@@ -61,7 +101,7 @@
 	    
 	  </div>
 	</div>
-	<div id="register_users">	</div>
+	
 	<!-- Fin Modal Registrarse-->
 	<!-- Modal Iniciar Sesión -->
 	<div class="modal fade" id="modalLogin" role="dialog">
@@ -69,7 +109,7 @@
 		      	<div class="modal-content login-color">
 		        	<div class="modal-header">
 		        		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		        		<h4 class="modal-title align-center"><img src="" class="img-responsive photo" alt=""></h4>
+		        		<h4 class="modal-title align-center"><img src="assets/img/user-dark.png" class="img-responsive photo-login" alt=""></h4>
 		        	</div>
 		        	<div class="modal-body">
 		        		<div class="content">	
