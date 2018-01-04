@@ -50,10 +50,10 @@ $(document).ready( function () {
 
 	    function showContentUsers() {
         // Cambio Menu Principal
-        $('#menu-user').html('<li><a href="#"><button type="button" class="btn btn-default text-uppercase">ver Perfil</button></a></li><li><a href="#"><button type="button" class="btn btn-default text-uppercase" id="close_session">Cerrar Sesión</button></a></li>');
+        $('#menu-user').html('<li><a href="#"><button type="button" class="btn btn-default text-uppercase" id="show-profile">ver Perfil</button></a></li><li><a href="#"><button type="button" class="btn btn-default text-uppercase" id="close_session">Cerrar Sesión</button></a></li>');
 	    	// Se fuerza al usuario a ingresar sus datos
 	    	if (displayName == null && photoURL == null) {
-	    		$('#register_users').html('<h3>Para continuar, completa la informacion de tu perfil<h3><div><input type="text" id="fullname" placeholder="Nombre Completo"></div><div><input type="text" id="urlphoto" placeholder="http://www.ejemplo.com/photo.jpg"></div><button type="button" id="completeprofile">Actualizar</button>');
+	    		$('#register_users').html('<div class="row welcome"><h3>Para continuar y disfrutar de todas las maravillas de LoveinFood, debes completar tu información de perfil</h3><form><div class="form-group"><label for="">Nombre Completo (Obligatorio) *</label><input id="fullname" class="form-control" type="text" placeholder="Ejemplo: Pablo Pérez"></div><div class="form-group"><label for="">Foto de Perfil (Obligatorio) *</label><input id="urlphoto" class="form-control" type="text"  placeholder="http://www.ejemplo.com/photo.jpg"></div><p>Verifica que toda la información solicitada esta correcta. Una vez enviada no se puede modificar</p><button id="completeprofile" type="button" class="btn btn-default btn-send text-uppercase">Enviar Información de Perfil</button></form></div>');
 	    		$('#completeprofile').click(function () {
 	    			var user = firebase.auth().currentUser;
 
@@ -66,10 +66,17 @@ $(document).ready( function () {
 						}).catch(function(error) {
   						// An error happened.
 						});
+            location.reload();
 	    		})
 				}
 	    	else {
 	    		$('#register_users').html('<div class="welcome row"><div class="col-xs-4 offset-md-2 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-8"><h3>Bienvenid@ '+displayName+'</h3><p class="hidden-xs">Ultima Conexión: '+Date()+'</p></div>');
+          // Para ver perfil de usuario
+          $('#show-profile').click(function () {
+            $('.intro').hide();
+            $(".maincontent").css("position", "static")
+            
+          })
 	    	}
 	    	
 	    };
