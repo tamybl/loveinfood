@@ -1,5 +1,6 @@
 body {
     position: relative;
+    font-family: 'Roboto', sans-serif;
 }
 
 #navigation {
@@ -11,17 +12,12 @@ body {
     z-index: 100;
 }
 
-.logo {
-
-}
-
 .maincontent {
     position: absolute;
     background-color: #2b3136;
-    height: 1000px;
+    height: 2000px;
     width: 100%;
     top: 0;
-
 }
 
 .pad-0 {
@@ -53,6 +49,17 @@ body {
     margin-top: 8em;
 }
 
+.slide-description {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 60%;
+    padding: 2em 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #fe7b69;
+    text-shadow: 1px 1px #fff;
+    z-index: 50;
+}
 @media screen and (min-width:768px){
     .navbar-brand-centered {
         position: absolute;
@@ -76,8 +83,8 @@ body {
     }
 
     .logo {
-    width: 9em;
-}
+        width: 9em;
+    }
 
     #navbar-brand-centered {
         background-color: #fff;
@@ -94,7 +101,18 @@ body {
         margin-top: 5em;
     }
 
-    .slide {
-    height: auto;
+    .slide-description {
+        top: 40%;
+    }
 }
+
+
+@media screen and (max-width: 1400px) {
+    .slide {
+        height: auto;
+    }
+
+    .slide-description {
+        top: 50%;
+    }
 }

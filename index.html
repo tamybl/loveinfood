@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<title>LoveinFood - red social para los amantes de la comida</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto|Cookie" rel="stylesheet">
 	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
@@ -60,12 +60,17 @@
 	<main class="maincontent container-fluid">
 		<div class="row intro">
 			<div class="col-md-12 pad-0">
-				<div class="slide"><img src="assets/img/header-photo.jpg" alt="" class="photo-header"></div>
+				<div class="slide"><img src="assets/img/header-photo.jpg" alt="" class="photo-header">
+					<div class="slide-description">
+						<h3>LoveinFood conecta a los amantes de la buena mesa para crear recetas novedosas.</h3>
+						<h3 class="hidden-xs">Comparte con otros tus secretos culinarios y vuelvete un  experto en la cocina!.</h3>
+					</div>
+				</div>
 			</div>
 			
 		</div>
 		
-		<p>Hola</p>
+		
 		<div id="register_users">	</div>	
 	</main>
 
@@ -78,7 +83,7 @@
 	    <div class="modal-content register-form">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title"><button type="button" class="btn btn-default btn-newaccount bold">Ya tienes una cuenta?</button></h4>
+	        <h4 class="modal-title"><button type="button" class="btn btn-default text-uppercase bold" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal">Ya tienes una cuenta?</button></h4>
 	        <h5 class="text-uppercase bold text-center">O crea una cuenta nueva</h5>
 	      </div>
 	      <div class="content">
