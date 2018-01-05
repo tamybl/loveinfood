@@ -89,6 +89,17 @@ body {
   color: #fff;
 }
 
+.foto {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 .footer .fa {
   font-size: 1.6em;
   padding: 0.3em;
