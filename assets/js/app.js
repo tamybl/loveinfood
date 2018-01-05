@@ -1,5 +1,6 @@
 $(document).ready( function () {
 	var database = firebase.database();
+  var userConnect = null;
 
 	$('#submit_register').click(function () {
 		var email = $('#email').val();
@@ -43,9 +44,21 @@ $(document).ready( function () {
 	    var uid = user.uid;
 	    var providerData = user.providerData;
 	    console.log(user);
+      // Guardar info del usuario a la BD
+
+      userConnect = database.ref("/user");
+
+      function addUserBD (uid,name) {
+        var connected = userConnect.push({
+          uid:uid,
+          name:name
+        });
+      }
+
 	    if (emailVerified) {
 	    	// Si el usuario esta verificado, puede acceder al contenido
 	  		showContentUsers();
+        addUserBD (user.uid,user.displayName);
 	  	}
 
 	    function showContentUsers() {
@@ -70,16 +83,29 @@ $(document).ready( function () {
 	    		})
 				}
 	    	else {
-	    		$('#register_users').html('<div class="welcome row"><div class="col-xs-4 offset-md-2 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-8"><h3>Bienvenid@ '+displayName+'</h3><p class="hidden-xs">Ultima Conexión: '+Date()+'</p></div>');
+	    		$('#register_users').html('<div class="welcome row"><div class="col-xs-4 col-md-1"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-8"><h3>Bienvenid@ '+displayName+'</h3>');
           // Para ver perfil de usuario
           $('#show-profile').click(function () {
             $('.intro').hide();
             $(".maincontent").css("position", "static");
             $(".welcome").css("background-color", "#3c434a");
             $(".welcome").css("color", "6#c7a84");
-            $(".welcome").html('<div class="col-xs-4 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-10"><h3>'+displayName+'</h3><div class="row text-center"><div class="col-xs-4 col-md-4"><h4>Publicaciones</h4><h3>22</h3></div><div class="col-xs-4 col-md-4"><h4>Recetas</h4><h3>5</h3></div><div class="col-xs-4 col-md-4"><h4>Listas</h4><h3>2</h3></div></div></div>');
+            $(".welcome").html('<div class="col-xs-4 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-10"><h3>'+displayName+' <span class="hidden-xs pull-right"><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></span></h3><div class="row text-center"><div class="col-xs-4 col-md-4"><h4>Publicaciones</h4><h3>22</h3></div><div class="col-xs-4 col-md-4"><h4>Recetas</h4><h3>5</h3></div><div class="col-xs-4 col-md-4"><h4>Listas</h4><h3>2</h3></div></div></div>');
+            $('#register_users').append(
+              '<div class="row profile-content"><div class="col-xs-12 col-md-8 text-center"><h2 class="lobster">¿Que quieres hacer hoy?</h2><div class="row"><div class="col-md-4"><button class="newchoose" id="new_post">Publicar</button></div><div class="col-md-4"><button class="newchoose" id="new_recipe">Subir receta</button></div><div class="col-md-4"><button class="newchoose" id="new_list">Nueva Lista</button></div><div class="col-md-12" id="show-content">INFO</div></div></div><div class="col-xs-12 col-md-4 aside"><div class="friends-box"><h3 class="text-uppercase text-center poppins">Amigos</h3><div class="friend-pics"><img src="assets/img/profile/user0.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user1.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user2.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user3.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user4.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user5.jpg" alt="" class="img-responsive"></div> <div class="friend-pics"><img src="assets/img/profile/user6.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user7.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user8.jpg" alt="" class="img-responsive"></div></div><div class="pages-follow"><h3 class="poppins text-uppercase text-center">Sugerencias</h3><ul><li><a href="#">Gordon Ramsay</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Jamie Oliver</a> <button class="btn-follow">Seguir</button></li> <li><a href="#">Rachel Ray</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Mario Batali</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Giada De Laurentiis</a> <button class="btn-follow">Seguir</button class="btn-follow"></li><li><a href="#">Ferran Adrià</a> <button class="btn-follow">Seguir</button class="btn-follow"></li></ul></div></div></div>');
+            $('#new_post').click( function () {
+              $('#show-content').html('<form><div class="form-group"><label class="control-label pull-left">Título:</label><input type="txt" class="form-control" id="title_post" placeholder="Mi Sandwich favorito"></div><div class="form-group"><label class="control-label pull-left">Descripción:</label><textarea name="" id="textarea_post" cols="30" rows="10"></textarea></div> <input type="file" id="add-pic"><button class="text-uppercase" id="upload_post">Subir</button></form>');
 
-          })
+            })
+            $('#new_recipe').click( function () {
+              $('#show-content').html('<h3>En desarrollo...</h3>');
+            })
+
+            $('#new_list').click( function () {
+              $('#show-content').html('<h3>En desarrollo...</h3>');
+            })
+
+          });
 	    	}
 	    	
 	    };
@@ -102,6 +128,7 @@ $(document).ready( function () {
 	    console.log('No existe usuario activo');
 	  }
 	});
+
 	function verify() {
 	 	var user = firebase.auth().currentUser;
 		user.sendEmailVerification().then(function() {
@@ -112,6 +139,7 @@ $(document).ready( function () {
 			});
 	  }
 	})
+
 	$('#forgetpwd').click(function () {
 		var auth = firebase.auth();
 		var emailAddress = prompt('Ingresa tu correo');
@@ -120,4 +148,14 @@ $(document).ready( function () {
 		}).catch(function(error) {
   // An error happened.
 	});
+
+
+  // Funcion para redimensionar el textarea
+  $('textarea').keydown( function () {
+    var element = $(this);
+    setTimeout(function(){
+      element.style.cssText = 'height:auto; padding:3px';
+      element.style.cssText = 'height:' + element.scrollHeight + 'px';
+    },0);
+  });          
 })
