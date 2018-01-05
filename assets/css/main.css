@@ -32,6 +32,11 @@ body {
     padding: 0;
 }
 
+.trending-pics {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /* login section */
 
@@ -143,8 +148,40 @@ textarea {
   resize: none;
 }
 
-.space {
-  margin-left: 1em;
+
+/*  Subir imagenes */
+.thumbnail {
+    width: 171px;
+    /*margin: 0 auto; */
+    margin-bottom: 10px;
+}
+
+#preview {
+    position: relative;
+}
+#preview a {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  display: none;
+}
+
+#file-info {
+    text-align: left;
+    display: block;
+}
+
+input[type=file] {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  z-index: -9999;
+}
+
+#post-save {
+    text-align:center;
+    width: 171px;
 }
 
 @media screen and (min-width:768px){

@@ -1,0 +1,47 @@
+
+h1{
+
+	font-family: 'lobster';
+}
+
+.logo{
+	margin-top:1em;
+	display: inline-block;
+}
+
+.boton-select{
+  border-radius: 15px 50px;
+  background-color: #3E9E81;
+  border-color: transparent;
+  height: 100%;
+}
+
+.txt-area{
+	margin-top: 1em;
+}
+
+.publicar{
+	margin-top:0.2em;
+	background-color: #444444;
+	color: white;
+	float:right;
+}
+
+.contenedor-botones{
+	padding-top:3em;
+}
+
+#oculto{
+	display: none;
+}
+
+#escondido{
+	display: none;
+}
+
+.imagenes{
+	margin-top: 2em;
+}
+.comida{
+	margin-bottom:0.5em;
+}

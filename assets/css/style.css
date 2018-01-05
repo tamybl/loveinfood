@@ -1,0 +1,124 @@
+button{
+	margin-top: 0.5em;
+	margin-left: 1em;
+	margin-right: 0.5em;
+}
+
+.btn:hover{
+	background-color: #C2FFAE;
+}
+
+.logocontenedor{
+	z-index: 3;
+    margin: 0.5em;
+    position: absolute;
+    margin-left: 1em;
+    height: 20em;
+}
+
+.logo{
+	display: inline-block;
+	height: 3em;
+}
+
+.img-principal{
+	width: 100%;
+}
+
+.efecto-imagen{
+	margin-top: -2em;
+	position: absolute;
+	width: 100%;
+
+}
+
+.navbar{
+    background-color: white !important;
+    border-color: white !important;
+}
+
+.transparent{
+	margin-top:-2.7em;
+	height: auto;
+	color: #FE8F82;
+	font-size: 1.3em;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.log{
+	display: inline-block;
+}
+
+.contenedor-imagenes{
+	display: block;
+	background-color: #2B3136;
+	margin-top:-1em;
+	height: auto;
+}
+
+.marco-foto{
+	height: auto;
+	margin-bottom: 1em;
+}
+
+.foto{
+	border-radius:10px 10px 0px 0px;
+}
+
+
+.titulo{
+	
+	font-family: 'lobster';
+	color: #6C7A84;	
+}
+
+
+
+.contenedor-iconos{
+	background-color:#3C434A;
+	border-radius:0px 0px 10px 10px;
+}
+
+.corazon{
+	color: red;
+}
+
+.iconos-principales{
+	margin-left: 0.1em;
+	cursor: pointer;
+	margin-top: 0.6em;
+}
+
+.checked {
+    color: orange;
+}
+
+footer{
+	background-color: black;
+	height: auto;
+}
+
+h6{
+	margin-left: 0.5em;
+}
+
+.info-foot{
+	margin: 1em;
+}
+
+.social{
+	display: inline-block;
+	float: right;
+}
+
+hr{
+color: grey;
+height: 0px;
+border:1px dashed;
+}
+
+.stars{
+ display: block;
+}
+
+

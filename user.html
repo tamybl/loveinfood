@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<title>LoveinFood - red social para los amantes de la comida</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+	<script src="assets/js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/user.css">
+	<link rel="stylesheet" href="assets/css/media.css">
+</head>
+<body>
+
+	<nav class="navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      
+      <a class="navbar-brand" href="index.html">Inicio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Registro de actividad</a></li>
+        <li><a href="#">Preferencias</a></li>
+        <li><a href="#">Configuración</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Perfil</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="container-fluid">
+<div class="row">
+<div class="col-xs-4 col-xs-push-4 col-sm-6 col-sm-push-5 col-md-2 col-md-push-5 contenedor-logo">
+
+ <img class="logo content-center img-responsive" src="assets/img/logo.png" alt="">
+ 
+ </div>
+ </div>
+  <h1 class="col-xs-12 text-center">¿Qué quieres hacer hoy?</h1>
+
+<div class="contenedor-botones container">
+  <div class="row ">
+    <div class="col-xs-4 col-sm-4 col-sm-push-1 col-md-3 col-md-push-2">
+      <button type="button" class="boton-select btn btn-default">Amigos</button>
+
+    </div>
+  <div class="col-xs-4 col-sm-4 col-sm-push-1 col-md-3 col-md-push-2">
+    <button id="comentar" type="button" class="boton-select btn btn-default">Publicar</button>
+  </div>
+
+
+  <div class="col-xs-4 col-sm-4 col-sm-push-1 col-md-3 col-md-push-2">
+    <button id="recetas" type="button" class="boton-select btn btn-default">Recetas</button>
+  </div>   
+</div>
+
+<section class="container-fluid imagenes" id="escondido">
+<div class="row">
+<div class="col-xs-4 ">
+<img class="comida img-responsive" src="assets/img/comida-rapida.jpg" alt="">
+</div> 
+<div class="col-xs-4 ">
+<img class="comida img-responsive" src="assets/img/comida-rapida.jpg" alt="">
+</div> 
+<div class="col-xs-4">
+<img class="comida img-responsive" src="assets/img/comida-rapida.jpg" alt="">
+</div> 
+</div> 
+<div class="row">
+<div class="col-xs-4">
+<img class="comida img-responsive" src="assets/img/comida-rapida.jpg" alt="">
+</div> 
+<div class="col-xs-4">
+<img class="comida img-responsive" src="assets/img/comida-rapida.jpg" alt="">
+</div> 
+<div class="col-xs-4">
+<img class="comida img-responsive" src="assets/img/comida-rapida.jpg" alt="">
+</div> 
+</div> 
+
+</section>
+
+<section id="oculto" class="row">
+  
+  <div  class="form-group">
+  <textarea class="txt-area form-control" rows="5" id="comment"></textarea>
+  <button type="button" class="publicar btn btn-default">Enviar</button>
+
+</div>
+    
+ 
+</section>
+</div>
+
+
+
+</section>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/user.js"></script>
+</body>
+</html>

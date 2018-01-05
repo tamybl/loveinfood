@@ -1,4 +1,5 @@
 $(document).ready( function () {
+  var imgPost = null;
 	var database = firebase.database();
   var userConnect = null;
 
@@ -87,16 +88,53 @@ $(document).ready( function () {
           // Para ver perfil de usuario
           $('#show-profile').click(function () {
             $('.intro').hide();
+            $('.trending-pics').hide();
             $(".maincontent").css("position", "static");
             $(".welcome").css("background-color", "#3c434a");
             $(".welcome").css("color", "6#c7a84");
             $(".welcome").html('<div class="col-xs-4 col-md-2"><img src="'+photoURL+'" alt="" class="img-thumbnail"></div><div class="col-xs-8 col-md-10"><h3>'+displayName+' <span class="hidden-xs pull-right"><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star fa-lg" aria-hidden="true"></i><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></span></h3><div class="row text-center"><div class="col-xs-4 col-md-4"><h4>Publicaciones</h4><h3>22</h3></div><div class="col-xs-4 col-md-4"><h4>Recetas</h4><h3>5</h3></div><div class="col-xs-4 col-md-4"><h4>Listas</h4><h3>2</h3></div></div></div>');
             $('#register_users').append(
-              '<div class="row profile-content"><div class="col-xs-12 col-md-8 text-center"><h2 class="lobster">¿Que quieres hacer hoy?</h2><div class="row"><div class="col-md-4"><button class="newchoose" id="new_post">Publicar</button></div><div class="col-md-4"><button class="newchoose" id="new_recipe">Subir receta</button></div><div class="col-md-4"><button class="newchoose" id="new_list">Nueva Lista</button></div><div class="col-md-12" id="show-content">INFO</div></div></div><div class="col-xs-12 col-md-4 aside"><div class="friends-box"><h3 class="text-uppercase text-center poppins">Amigos</h3><div class="friend-pics"><img src="assets/img/profile/user0.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user1.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user2.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user3.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user4.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user5.jpg" alt="" class="img-responsive"></div> <div class="friend-pics"><img src="assets/img/profile/user6.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user7.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user8.jpg" alt="" class="img-responsive"></div></div><div class="pages-follow"><h3 class="poppins text-uppercase text-center">Sugerencias</h3><ul><li><a href="#">Gordon Ramsay</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Jamie Oliver</a> <button class="btn-follow">Seguir</button></li> <li><a href="#">Rachel Ray</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Mario Batali</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Giada De Laurentiis</a> <button class="btn-follow">Seguir</button class="btn-follow"></li><li><a href="#">Ferran Adrià</a> <button class="btn-follow">Seguir</button class="btn-follow"></li></ul></div></div></div>');
+              '<div class="row profile-content"><div class="col-xs-12 col-md-8 text-center"><h2 class="lobster">¿Que quieres hacer hoy?</h2><div class="row"><div class="col-md-4"><button class="newchoose" id="new_post">Publicar</button></div><div class="col-md-4"><button class="newchoose" id="new_recipe">Subir receta</button></div><div class="col-md-4"><button class="newchoose" id="new_list">Nueva Lista</button></div><div class="col-md-12" id="show-content"></div><div id="posts"></div></div></div><div class="col-xs-12 col-md-4 aside"><div class="friends-box"><h3 class="text-uppercase text-center poppins">Amigos</h3><div class="friend-pics"><img src="assets/img/profile/user0.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user1.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user2.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user3.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user4.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user5.jpg" alt="" class="img-responsive"></div> <div class="friend-pics"><img src="assets/img/profile/user6.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user7.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user8.jpg" alt="" class="img-responsive"></div></div><div class="pages-follow"><h3 class="poppins text-uppercase text-center">Sugerencias</h3><ul><li><a href="#">Gordon Ramsay</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Jamie Oliver</a> <button class="btn-follow">Seguir</button></li> <li><a href="#">Rachel Ray</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Mario Batali</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Giada De Laurentiis</a> <button class="btn-follow">Seguir</button class="btn-follow"></li><li><a href="#">Ferran Adrià</a> <button class="btn-follow">Seguir</button class="btn-follow"></li></ul></div></div></div>');
             $('#new_post').click( function () {
-              $('#show-content').html('<form><div class="form-group"><label class="control-label pull-left">Título:</label><input type="txt" class="form-control" id="title_post" placeholder="Mi Sandwich favorito"></div><div class="form-group"><label class="control-label pull-left">Descripción:</label><textarea name="" id="textarea_post" cols="30" rows="10"></textarea></div> <input type="file" id="add-pic"><button class="text-uppercase" id="upload_post">Subir</button></form>');
+              $('#show-content').html('<form><div class="form-group"><label class="control-label pull-left">Título:</label><input type="txt" class="form-control" id="title_post" placeholder="Mi Sandwich favorito"></div><div class="form-group"><label class="control-label pull-left">Descripción:</label><textarea name="" id="textarea_post" cols="30" rows="10"></textarea></div> <div id="preview" class="thumbnail"><a href="#" id="file-select" class="btn btn-default">Elegir archivo</a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4="/></div><form id="file-submit" enctype="multipart/form-data"><input id="file" name="file" type="file"/></form><a href="#" class="btn btn-primary" id="post-save">Enviar Publicación</a></form><div id="posts"></div>');
 
+            $('#preview').hover(
+               function() {
+              $(this).find('a').fadeIn();
+             }, function() {
+              $(this).find('a').fadeOut();
+            }
+            )
+            $('#file-select').on('click', function(e) {
+              e.preventDefault();
+    
+             $('#file').click();
             })
+
+            $('input[type=file]').change(function() {
+              var file = (this.files[0].name).toString();
+              var reader = new FileReader();
+    
+              $('#file-info').text('');
+              $('#file-info').text(file);
+    
+              reader.onload = function (e) {
+                imgPost = e.target.result;
+                $('#preview img').attr('src', e.target.result);
+           }
+     
+            reader.readAsDataURL(this.files[0]);
+            });
+
+           $('#post-save').click( function () {
+            imgPost; // url imagen
+            
+
+
+           });
+
+          })
+
             $('#new_recipe').click( function () {
               $('#show-content').html('<h3>En desarrollo...</h3>');
             })
@@ -104,7 +142,6 @@ $(document).ready( function () {
             $('#new_list').click( function () {
               $('#show-content').html('<h3>En desarrollo...</h3>');
             })
-
           });
 	    	}
 	    	
