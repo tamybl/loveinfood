@@ -23,7 +23,7 @@ body {
 .maincontent {
     position: absolute;
     background-color: #f9f9f9;
-    height: 2000px;
+    height: auto;
     width: 100%;
     top: 0;
 }
@@ -50,7 +50,7 @@ body {
 /* header slide */
 
 .slide {
-  height: 69em;
+  height: 60em;
   overflow: hidden;
 }
 
@@ -80,6 +80,24 @@ body {
 
 .poppins {
   font-family: 'Poppins', sans-serif;
+}
+
+.footer {
+  background-color: #3c434a;
+  padding: 2em 1em 1em 1em;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.footer .fa {
+  font-size: 1.6em;
+  padding: 0.3em;
+}
+
+.copyright {
+  font-size: 0.9em;
+  padding-top: 1em;
+  color: #989898;
 }
 
 /* Estilos usuario logeado */
