@@ -116,10 +116,18 @@ body {
 .welcome {
   margin: 2% 5%;
   background-color: #3e9e81;
+  background-image: url(../img/bg-welcome.png);
+  background-size: cover;
+  background-position: 50% 37%;
   color: #ffF;
   border-radius: 6px;
   padding: 1em;
 }
+
+.nametitle {
+  padding-bottom: 1em;
+}
+
 
 .profile-content {
   margin-right: auto;
