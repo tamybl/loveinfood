@@ -80,6 +80,7 @@ $(document).ready( function () {
 						}).catch(function(error) {
   						// An error happened.
 						});
+            
             location.reload();
 	    		})
 				}
@@ -96,9 +97,9 @@ $(document).ready( function () {
             // Si ya se hizo click se remueve
             $('.profile-content').remove();
             $('#register_users').append(
-              '<div class="row profile-content"><div class="col-xs-12 col-md-8 text-center"><h2 class="lobster">¿Que quieres hacer hoy?</h2><div class="row"><div class="col-xs-4 col-md-4"><button class="newchoose" id="new_post">Publicar</button></div><div class="col-xs-4 col-md-4"><button class="newchoose" id="new_recipe">Subir receta</button></div><div class="col-xs-4 col-md-4"><button class="newchoose" id="new_list">Nueva Lista</button></div><div class="col-md-12" id="show-content"></div><div id="posts"></div></div></div><div class="col-xs-12 col-md-4 aside"><div class="friends-box"><h3 class="text-uppercase text-center poppins">Amigos</h3><div class="friend-pics"><img src="assets/img/profile/user0.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user1.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user2.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user3.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user4.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user5.jpg" alt="" class="img-responsive"></div> <div class="friend-pics"><img src="assets/img/profile/user6.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user7.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user8.jpg" alt="" class="img-responsive"></div></div><div class="pages-follow"><h3 class="poppins text-uppercase text-center">Sugerencias</h3><ul><li><a href="#">Gordon Ramsay</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Jamie Oliver</a> <button class="btn-follow">Seguir</button></li> <li><a href="#">Rachel Ray</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Mario Batali</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Giada De Laurentiis</a> <button class="btn-follow">Seguir</button class="btn-follow"></li><li><a href="#">Ferran Adrià</a> <button class="btn-follow">Seguir</button class="btn-follow"></li></ul></div></div></div>');
+              '<div class="row profile-content"><div class="col-xs-12 col-md-8 text-center"><h2 class="lobster">¿Que quieres hacer hoy?</h2><div class="row"><div class="col-xs-4 col-md-4"><button class="newchoose" id="new_post">Publicar</button></div><div class="col-xs-4 col-md-4"><button class="newchoose" id="new_recipe">Subir receta</button></div><div class="col-xs-4 col-md-4"><button class="newchoose" id="new_list">Nueva Lista</button></div><div class="col-md-12" id="option-selected"></div><div id="content-created"><div class="row"></div></div></div></div><div class="col-xs-12 col-md-4 aside"><div class="friends-box"><h3 class="text-uppercase text-center poppins">Amigos</h3><div class="friend-pics"><img src="assets/img/profile/user0.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user1.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user2.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user3.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user4.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user5.jpg" alt="" class="img-responsive"></div> <div class="friend-pics"><img src="assets/img/profile/user6.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user7.jpg" alt="" class="img-responsive"></div><div class="friend-pics"><img src="assets/img/profile/user8.jpg" alt="" class="img-responsive"></div></div><div class="pages-follow"><h3 class="poppins text-uppercase text-center">Sugerencias</h3><ul><li><a href="#">Gordon Ramsay</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Jamie Oliver</a> <button class="btn-follow">Seguir</button></li> <li><a href="#">Rachel Ray</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Mario Batali</a> <button class="btn-follow">Seguir</button></li><li><a href="#">Giada De Laurentiis</a> <button class="btn-follow">Seguir</button class="btn-follow"></li><li><a href="#">Ferran Adrià</a> <button class="btn-follow">Seguir</button class="btn-follow"></li></ul></div></div></div>');
             $('#new_post').click( function () {
-              $('#show-content').html('<form><div class="form-group"><label class="control-label pull-left">Título:</label><input type="txt" class="form-control" id="title_post" placeholder="Mi Sandwich favorito"></div><div class="form-group"><label class="control-label pull-left">Descripción:</label><textarea name="" id="textarea_post" cols="30" rows="10"></textarea></div> <div id="preview" class="thumbnail"><a href="#" id="file-select" class="btn btn-default">Elegir archivo</a><img src="assets/img/upload_file.png"/></div><form id="file-submit" enctype="multipart/form-data"><input id="file" name="file" type="file"/></form><a href="#" class="btn btn-primary" id="post-save">Enviar Publicación</a></form><div id="posts"></div>');
+              $('#option-selected').html('<form><div class="form-group"><label class="control-label pull-left">Título:</label><input type="txt" class="form-control" id="title_post" placeholder="Mi Sandwich favorito"></div><div class="form-group"><label class="control-label pull-left">Descripción:</label><textarea name="" id="textarea_post" cols="30" rows="10"></textarea></div> <div id="preview" class="thumbnail"><a href="#" id="file-select" class="btn btn-default">Elegir archivo</a><img src="assets/img/upload_file.png"/></div><form id="file-submit" enctype="multipart/form-data"><input id="file" name="file" type="file"/></form><button type="button "class="btn btn-primary" id="post-save">Enviar Publicación</button></form>');
 
             $('#preview').hover(
                function() {
@@ -129,23 +130,27 @@ $(document).ready( function () {
             });
 
            $('#post-save').click( function () {
-            var titlePost
-            var textPost
-            var 
+            var titlePost = $('#title_post').val();
+            var textPost = $('#textarea_post').val();
             imgPost; // url imagen
-            
 
+            $('#content-created').find('.row').prepend('<div id="subcontent"><div class="col-md-2"><img src="'+photoURL+'" class="img-responsive"></div><div class="col-md-10">'+displayName+'Fecha: '+Date()+'</div><div class="col-md-12"><h4>'+titlePost+'</h4><p><img src="'+imgPost+'" class="img-responsive"></p><p>'+textPost+'</p><div class="footer-subsection"><p>0 Comentarios</p></div></div></div>');
+
+            // Limpiar cajas de texto
+            $('#title_post').val('');
+            $('#textarea_post').val('');
+            $('#preview').find('img').attr("src", "assets/img/upload_file.png");
 
            });
 
           })
 
             $('#new_recipe').click( function () {
-              $('#show-content').html('<h3>En desarrollo...</h3>');
+              $('#option-selected').html('<h3>En desarrollo...</h3>');
             })
 
             $('#new_list').click( function () {
-              $('#show-content').html('<h3>En desarrollo...</h3>');
+              $('#option-selected').html('<h3>En desarrollo...</h3>');
             })
           });
 	    	}
@@ -191,13 +196,15 @@ $(document).ready( function () {
   // An error happened.
 	});
 
-
-  // Funcion para redimensionar el textarea
-  $('textarea').keydown( function () {
-    var element = $(this);
-    setTimeout(function(){
-      element.style.cssText = 'height:auto; padding:3px';
-      element.style.cssText = 'height:' + element.scrollHeight + 'px';
-    },0);
-  });          
+  // Time
+  function myDate () {
+  // Dividir Date() en un arreglo
+  var arr = Date().split(" ");
+  // elemento 4 del arreglo almacena HH:MM:SS. Se divide en un arreglo de 3
+  var arrTime = arr[4].split(":");
+  // Se toman los datos 0 (HH) y 1 (MM) y se concatenan
+  var time = arrTime[0] + ":" + arrTime[1];
+  return time;
+  }
+      
 })
