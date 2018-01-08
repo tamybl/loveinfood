@@ -2,7 +2,7 @@ body {
     position: relative;
     font-family: 'Roboto', sans-serif;
     padding: 0px !important;
-    background-color: #f9f9f9;
+    background-color: #f1f2f2;
 }
 
 #navigation {
@@ -22,7 +22,7 @@ body {
 
 .maincontent {
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #f1f2f2;
     height: auto;
     width: 100%;
     top: 0;
